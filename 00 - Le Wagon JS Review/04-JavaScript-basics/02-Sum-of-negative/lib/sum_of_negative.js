@@ -14,7 +14,7 @@ const sumOfNegative = (numbers) => {
   return sumTotal;
 };
 
-sumOfNegative([-4, 5, -2, 9]);
+console.log(sumOfNegative([-4, 5, -2, 9]));
 
 
 // sumOfNegative(1);
