@@ -20,7 +20,7 @@ const dataset = (element) => {
       objectOfData[keyValuePairArray[0]] = parseInt(keyValuePairArray[1].slice(1,-1));
     } else if (keyValuePairArray[0] == "category") {
         objectOfData[keyValuePairArray[0]] = keyValuePairArray[1].slice(1,-1);
-    } else if (keyValuePairArray[1] == "true" || keyValuePairArray[1] == "false") {
+    } else if (keyValuePairArray[1] == '"True"' || keyValuePairArray[1] == '"False"') {
         objectOfData[keyValuePairArray[0]] = keyValuePairArray[1].slice(2,-2);
     } 
   });
