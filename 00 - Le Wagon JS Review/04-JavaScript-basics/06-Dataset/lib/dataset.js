@@ -17,13 +17,16 @@ const dataset = (element) => {
   });
   arraysofKeysAndValues.forEach((keyValuePairArray) => {     // => [ [ 'id', '"42"' ], [ 'price', '"15"' ], [ 'category', '"popular"' ] ]
     if (keyValuePairArray[0] == "id" || keyValuePairArray[0] == "price") {
-    objectOfData[keyValuePairArray[0]] = parseInt(keyValuePairArray[1].slice(1,-1));
-    } else {
-      objectOfData[keyValuePairArray[0]] = keyValuePairArray[1].slice(1,-1);
-    }
+      objectOfData[keyValuePairArray[0]] = parseInt(keyValuePairArray[1].slice(1,-1));
+    } else if (keyValuePairArray[0] == "category") {
+        objectOfData[keyValuePairArray[0]] = keyValuePairArray[1].slice(1,-1);
+    } else if (keyValuePairArray[1] == "true" || keyValuePairArray[1] == "false") {
+        objectOfData[keyValuePairArray[0]] = keyValuePairArray[1].slice(2,-2);
+    } 
   });
   return objectOfData;
 };
+
 
 const burger = `<div class="card" data-id="42" data-price="15" data-category="popular">
   <div class="card-category">Popular</div>
@@ -32,9 +35,6 @@ const burger = `<div class="card" data-id="42" data-price="15" data-category="po
   </div>
 </div>`;
 
-let test = '"309"';
-// console.log(test.slice(1, -1));
-// console.log(parseInt(test));
 console.log(dataset(burger));  // => { id: 42, price: 15, category: 'popular' }
 
 module.exports = dataset; // Do not remove.
