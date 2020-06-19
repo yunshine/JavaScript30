@@ -31,6 +31,10 @@ module.exports = function runChallenges(check) {
   hint.innerHTML = "<strong>This is my email now</strong>";
 
   // Ex 4. Add the .blue CSS class to the th elements
+  const Addblue = document.querySelectorAll("th");
+  Addblue.forEach((th) => {
+    th.classList.add("blue");
+  })
 
 
 
