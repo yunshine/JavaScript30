@@ -14,6 +14,8 @@ module.exports = function runChallenges(check) {
   //       Make the function getEmail() return it
   const getEmail = () => {
     // TODO: return the email
+    const email = document.querySelector("#email");
+    return email.value;
   };
 
   // /!\ DO NOT CHANGE THIS LINE - TEST PURPOSES
