@@ -22,7 +22,8 @@ module.exports = function runChallenges(check) {
   const borisesEmail = getEmail();
 
   // Ex 2. Change the content of the email input by writing your own email address
-
+    const email = document.querySelector("#email");
+    email.value = "yunshine@gmail.com";
 
   // Ex 3. Replace the email hint (next to the input) with 'This is my email now'
   //       The text should be emphasized using a <strong> tag
