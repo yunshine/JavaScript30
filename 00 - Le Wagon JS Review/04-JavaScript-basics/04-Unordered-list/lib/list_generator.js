@@ -5,10 +5,11 @@ const listItem = (content) => {
 };
 
 const unorderedList = (items) => {
-  const listItems = []
+  // const listItems = []
   // TODO: return the proper <ul> markup (as a string)
-  items.forEach((item) => {
-    listItems.push(`<li class="list-group-item">${item}</li>`);
+  let listItems = items.map((item) => {
+    // listItems.push(`<li class="list-group-item">${item}</li>`);
+    return `<li class="list-group-item">${item}</li>`;
   });
   return `<ul class="list-group">${listItems.join('')}</ul>`;
 };
