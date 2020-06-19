@@ -26,9 +26,14 @@ const buildSoldierObject = (battlefield) => {
 
 const whoWinsTheWar = (battlefield) => {
   // TODO: Based on the battlefield's description (it's a String), return "Good", "Evil" or "Tie".
+  const keysValuesArray = Object.entries(buildSoldierObject(battlefield));
+  return keysValuesArray;
+  // Object.entries()
 };
 
 
-
+const battlefield = "Elves:3,Hobbits:7,Orcs:2";
+// whoWinsTheWar(battlefield);  //=> { "Elves" => 3, "Hobbits" => 7, Orcs" => 2 }
+console.log(whoWinsTheWar(battlefield));  //=> { "Elves" => 3, "Hobbits" => 7, Orcs" => 2 }
 
 module.exports = { whoWinsTheWar, buildSoldierObject, isGood }; // Do not remove this line
