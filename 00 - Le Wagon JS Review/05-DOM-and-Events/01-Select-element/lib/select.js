@@ -3,6 +3,8 @@
 
 const franceElement = () => {
   // TODO 2: select the France list item and return it!
+  const france = document.querySelector("#france");
+  return france;
 };
 
 module.exports = franceElement; // Do not remove.
