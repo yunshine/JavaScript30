@@ -51,6 +51,8 @@ module.exports = function runChallenges(check) {
 
   // Ex 6. Say there is a 15th team added to the table.
   //       Add a row at the bottom, this new team should have zero points.
+  const mainBody = document.querySelector("tbody");
+  mainBody.insertAdjacentHTML("beforeend", "<tr><td>14</td><td>Team Yun</td><td>0</td></tr>");
 
 
 
