@@ -42,6 +42,8 @@ module.exports = function runChallenges(check) {
   //       Make the function teamCount() return it
   const teamCount = () => {
     // TODO: return the number of teams
+    const teams = document.querySelectorAll("tbody tr");
+    return teams.length;
   };
 
   // /!\ DO NOT CHANGE THIS LINE - TEST PURPOSES
