@@ -1,1 +1,34 @@
 /* Your board style here */
+.racer-table td {
+  height: 40px;
+  width: 40px;
+}
+
+.racer-table td.active {
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+#player1-race td.active {
+  background-image: url("images/player_1.png");
+}
+#player2-race td.active {
+  background-image: url("images/player_2.png");
+}
+
+.finish-line {
+  background-image: url("images/finish.png");
+  background-size: cover;
+}
+
+tr {
+  margin: 16px;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0 8px;
+}
+
+td {
+  border: 1px solid rgba(120, 120, 120, 0.309);
+}
