@@ -1,8 +1,8 @@
 // TODO: write your code here
-const playerOne = document.querySelector("#player1-race .active");
-
-playerOne.addEventListener("keyup", (event) => {
-  if ("keyup" == 81) {
-    playerOne.classList.remove("active");
-  }
+document.addEventListener("keyup", (event) => {
+  if (event.key === "q") {
+    console.log("qyes!");
+  } else if (event.key === "p") {
+    console.log("pyes!!!");
+  };
 });
