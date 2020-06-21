@@ -1,8 +1,22 @@
 // TODO: write your code here
-document.addEventListener("keyup", (event) => {
+
+const wagonMove = (wagon) => {
+  const whichWagon = document.querySelector(`#player${wagon}-race .active`);
+  if (whichWagon.nextElementSibling) {
+    whichWagon.nextElementSibling.classList.add("active");
+    whichWagon.classList.remove("active");
+  } else {
+    alert(`Player ${whichWagon} wins! Play again?`);
+    window.location.reload();
+  }
+};
+
+const advance = (event) => {
   if (event.key === "q") {
-    console.log("qyes!");
+    wagonMove(1);
   } else if (event.key === "p") {
-    console.log("pyes!!!");
-  };
-});
+    wagonMove(2);
+  }
+};
+
+document.addEventListener("keyup", advance);
