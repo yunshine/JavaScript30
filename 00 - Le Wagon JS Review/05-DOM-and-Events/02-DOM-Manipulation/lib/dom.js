@@ -60,11 +60,14 @@ module.exports = function runChallenges(check) {
   //       Make the function summarizePoints() return it
   const summarizePoints = () => {
     // TODO: return the sum
-    const points = document.querySelectorAll("tbody tr td");
-    return parseInt(points);
+    const points = document.querySelectorAll("tbody tr td:last-child");
+    let sum = 0;
+    points.forEach((pointValue) => {
+      let i = pointValue.innerText;
+      sum = sum + Number.parseInt(i, 10);
+    });
+    return sum;
   };
-
-console.log(summarizePoints());
 
   // Ex 8. Change the background color of all `<th>` cells to #DDF4FF
 
