@@ -22,7 +22,17 @@ const newMessage = () => {
 
 const appendMessageToDom = (message) => {
   // TODO: append the given message to the DOM (as a new row of `#inbox`)
+  // const newObject = newMessage();
+  // const newSender = newObject.sender;
+  // const newSubject = newObject.subject;
+
+  const newEmail = document.getElementById("inbox");
+  const newLine = `<div class="row message unread">
+      <div class="col-3">${message.sender}</div><div class="col-9">${message.subject}</div></div>`;
+  newEmail.insertAdjacentHTML('afterbegin', newLine);
 };
+
+appendMessageToDom(newMessage());
 
 const refresh = () => {
   // TODO: Implement the global refresh logic. If there is a new message,
