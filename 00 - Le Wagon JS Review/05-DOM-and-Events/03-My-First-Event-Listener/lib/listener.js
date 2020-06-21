@@ -2,4 +2,5 @@
 const button = document.querySelector("#clickme");
 button.addEventListener("click", (event) => {
   button.classList.add(".disabled");
+  button.innerText = "Bingo!"
 });
