@@ -70,6 +70,10 @@ module.exports = function runChallenges(check) {
   };
 
   // Ex 8. Change the background color of all `<th>` cells to #DDF4FF
+  const colorChange = document.querySelectorAll("th");
+  colorChange.forEach((element) => {
+    element.style.backgroundColor = "#DDF4FF";
+  });
 
 
 
