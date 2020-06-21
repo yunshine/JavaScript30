@@ -12,6 +12,12 @@ const hasNewMessage = () => {
 
 const newMessage = () => {
   // TODO: return a random message as an object with two keys, subject and sender
+  const subjects = ["Hi", "Hello", "I'll be taking my talents to South Beach"];
+  const senders = ["Yun", "Eunjoo", "LeBron"];
+  return message = {
+    subject: subjects[Math.floor(Math.random() * subjects.length)],
+    sender: senders[Math.floor(Math.random() * senders.length)],
+  };
 };
 
 const appendMessageToDom = (message) => {
