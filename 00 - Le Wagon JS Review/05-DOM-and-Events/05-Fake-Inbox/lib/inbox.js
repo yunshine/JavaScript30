@@ -40,14 +40,16 @@ const appendMessageToDom = (message) => {
 //   return emailCountInteger;
 // };
 
+let emailCount = 1;
 const refresh = () => {
   if (hasNewMessage() == true) {
     appendMessageToDom(newMessage());
-
-      let emailCount = document.getElementById("count");
-  let emailInnerText = emailCount.innerText;
-  emailInnerText = emailInnerText.replace(/[{()}]/g, '');
-  let emailCountInteger = Number.parseInt(emailInnerText);
+    emailCount = (emailCount +1);
+    console.log(emailCount);
+      // let emailCount = document.getElementById("count");
+      // let emailInnerText = emailCount.innerText;
+      // emailInnerText = emailInnerText.replace(/[{()}]/g, '');
+      // let emailCountInteger = Number.parseInt(emailInnerText);
     // console.log(counterFunction() + 1);
   }
   // TODO: Implement the global refresh logic. If there is a new message,
