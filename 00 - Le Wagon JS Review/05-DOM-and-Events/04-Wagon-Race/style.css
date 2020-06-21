@@ -1,7 +1,7 @@
 /* Your board style here */
 .racer-table td {
-  height: 40px;
-  width: 40px;
+  height: 48px;
+  width: 48px;
 }
 
 .racer-table td.active {
@@ -11,6 +11,7 @@
 #player1-race td.active {
   background-image: url("images/player_1.png");
 }
+
 #player2-race td.active {
   background-image: url("images/player_2.png");
 }
