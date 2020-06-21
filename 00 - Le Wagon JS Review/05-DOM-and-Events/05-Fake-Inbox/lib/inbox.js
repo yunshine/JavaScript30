@@ -32,9 +32,24 @@ const appendMessageToDom = (message) => {
   newEmail.insertAdjacentHTML('afterbegin', newLine);
 };
 
-appendMessageToDom(newMessage());
+// const counterFunction = () => {
+//   let emailCount = document.getElementById("count");
+//   let emailInnerText = emailCount.innerText;
+//   emailInnerText = emailInnerText.replace(/[{()}]/g, '');
+//   let emailCountInteger = Number.parseInt(emailInnerText);
+//   return emailCountInteger;
+// };
 
 const refresh = () => {
+  if (hasNewMessage() == true) {
+    appendMessageToDom(newMessage());
+
+      let emailCount = document.getElementById("count");
+  let emailInnerText = emailCount.innerText;
+  emailInnerText = emailInnerText.replace(/[{()}]/g, '');
+  let emailCountInteger = Number.parseInt(emailInnerText);
+    // console.log(counterFunction() + 1);
+  }
   // TODO: Implement the global refresh logic. If there is a new message,
   //       append it to the DOM. Update the unread counter in title as well.
 };
