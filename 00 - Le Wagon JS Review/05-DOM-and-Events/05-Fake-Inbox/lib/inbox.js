@@ -2,6 +2,12 @@
 
 const hasNewMessage = () => {
   // TODO: return true with a probability of 20%.
+  const randomNumber = Math.random();
+  if (randomNumber <= 0.2) {
+    return true
+  } else {
+    return false;
+  }
 };
 
 const newMessage = () => {
