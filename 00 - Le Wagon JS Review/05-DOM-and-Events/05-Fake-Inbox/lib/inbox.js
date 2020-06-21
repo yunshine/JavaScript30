@@ -45,6 +45,10 @@ const refresh = () => {
   if (hasNewMessage() == true) {
     appendMessageToDom(newMessage());
     emailCount = (emailCount +1);
+
+    let emailCountText = document.getElementById("count");
+    emailCountText.innerText = `(${emailCount})`;
+
     console.log(emailCount);
       // let emailCount = document.getElementById("count");
       // let emailInnerText = emailCount.innerText;
@@ -55,19 +59,6 @@ const refresh = () => {
   // TODO: Implement the global refresh logic. If there is a new message,
   //       append it to the DOM. Update the unread counter in title as well.
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
