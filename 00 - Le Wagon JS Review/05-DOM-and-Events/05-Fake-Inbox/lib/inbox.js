@@ -49,6 +49,9 @@ const refresh = () => {
     let emailCountText = document.getElementById("count");
     emailCountText.innerText = `(${emailCount})`;
 
+    let emailCountTextTitle = document.querySelector("title");
+    emailCountTextTitle.innerText = `${emailCount} New Emails`;
+
     console.log(emailCount);
       // let emailCount = document.getElementById("count");
       // let emailInnerText = emailCount.innerText;
