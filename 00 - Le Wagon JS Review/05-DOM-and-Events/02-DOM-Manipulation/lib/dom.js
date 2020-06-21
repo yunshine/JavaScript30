@@ -52,7 +52,7 @@ module.exports = function runChallenges(check) {
   // Ex 6. Say there is a 15th team added to the table.
   //       Add a row at the bottom, this new team should have zero points.
   const mainBody = document.querySelector("tbody");
-  mainBody.insertAdjacentHTML("beforeend", "<tr><td>14</td><td>Team Yun</td><td>0</td></tr>");
+  mainBody.insertAdjacentHTML("beforeend", "<tr><td>15</td><td>Team Yun</td><td>0</td></tr>");
 
 
 
@@ -60,8 +60,11 @@ module.exports = function runChallenges(check) {
   //       Make the function summarizePoints() return it
   const summarizePoints = () => {
     // TODO: return the sum
+    const points = document.querySelectorAll("tbody tr td");
+    return parseInt(points);
   };
 
+console.log(summarizePoints());
 
   // Ex 8. Change the background color of all `<th>` cells to #DDF4FF
 
