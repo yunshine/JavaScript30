@@ -19,5 +19,9 @@ input.addEventListener("keyup", (event) => {
     .then(response => response.json())
     .then((data) => {
       console.log(data);
+      data.words.forEach((suggestion) => {
+        console.log(suggestion);
+        results.insertAdjacentHTML("beforeend", `<li>${suggestion}</li>`);
+      });
     });
 });
