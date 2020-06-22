@@ -15,6 +15,7 @@ plus.addEventListener("click", (event) => {
   counter.innerText = counterTotal.toString();
   submit.value = `Pay ${priceTotal}€`;    
   cents.value = `${priceTotal * 100}`;
+  minus.classList.remove("disabled");
   console.log(counterTotal);
 });
 
@@ -22,7 +23,9 @@ minus.addEventListener("click", (event) => {
   console.log("minus has been clicked");
     if (counterTotal <= 1) {
       event.preventDefault();  
+      minus.classList.add("disabled");
     } else{
+        minus.classList.remove("disabled");
         counterTotal = counterTotal -1;
         counter.innerText = counterTotal.toString();
         priceTotal = priceTotal -150;
