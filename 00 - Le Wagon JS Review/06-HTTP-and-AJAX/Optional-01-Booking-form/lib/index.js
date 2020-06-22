@@ -10,3 +10,14 @@ plus.addEventListener("click", (event) => {
   counter.innerText = counterTotal.toString();
   console.log(counterTotal);
 });
+
+minus.addEventListener("click", (event) => {
+  console.log("minus has been clicked");
+    if (counterTotal <= 1) {
+      event.preventDefault();  
+    } else{
+        counterTotal = counterTotal -1;
+        counter.innerText = counterTotal.toString();
+        console.log(counterTotal);
+    }
+});
