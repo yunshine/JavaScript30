@@ -1,8 +1,19 @@
 // TODO: write your code here!
-const clickable = document.querySelectorAll(".clickable");
+const buttons = document.querySelectorAll(".clickable");
 
-clickable.forEach((element) => {
-  element.addEventListener("click", (event) => {
-    element.classList.toggle("active");
-  });
-});
+// buttons.forEach((button) => {
+//   button.addEventListener("click", (event) => {
+//     button.classList.toggle("active");
+//   });
+// });
+
+
+const displayClicked = (event) => {
+  event.currentTarget.classList.toggle("active");
+};
+
+const buttonToClick = (button) => {
+  button.addEventListener("click", displayClicked);
+};
+
+buttons.forEach(buttonToClick);
