@@ -3,17 +3,18 @@ const plus = document.querySelector(".plus");
 const minus = document.querySelector(".minus");
 const counter = document.querySelector("#counter");
 const submit = document.querySelector("#submit");
+const cents = document.querySelector("#price-input");
 
 let counterTotal = 1;
 let priceTotal = 150;
-
 
 plus.addEventListener("click", (event) => {
   console.log("plus has been clicked");
   counterTotal = counterTotal +1;
   priceTotal = priceTotal +150;
   counter.innerText = counterTotal.toString();
-  submit.value = `Pay ${priceTotal}€`;
+  submit.value = `Pay ${priceTotal}€`;    
+  cents.value = `${priceTotal * 100}`;
   console.log(counterTotal);
 });
 
@@ -27,6 +28,7 @@ minus.addEventListener("click", (event) => {
         priceTotal = priceTotal -150;
         counter.innerText = counterTotal.toString();
         submit.value = `Pay ${priceTotal}€`;
+        cents.value = `${priceTotal * 100}`;
         console.log(counterTotal);
     }
 });
