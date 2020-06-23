@@ -40,9 +40,30 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=seoul&appid=daaf9d16ae4
     const dayOfWeek = today.getDay();
     const monthOfYear = today.getMonth();
     const info = Date();
+    let hour = today.getHours();
+      if (hour == 12) {
+        const today = new Date();
+        const dayOfWeek = today.getDay();
+        const monthOfYear = today.getMonth();
+        const info = Date();
+        dayDateTime.innerText = `${weekday[dayOfWeek]}, ${months[monthOfYear]} ${today.getDate()}, ${hour}:${today.getMinutes()}PM`;
+    } else if (hour > 12) {
+        const today = new Date();
+        const dayOfWeek = today.getDay();
+        const monthOfYear = today.getMonth();
+        const info = Date();
+        hour = (hour - 12);
+        dayDateTime.innerText = `${weekday[dayOfWeek]}, ${months[monthOfYear]} ${today.getDate()}, ${hour}:${today.getMinutes()}PM`;
+    } else {
+        const today = new Date();
+        const dayOfWeek = today.getDay();
+        const monthOfYear = today.getMonth();
+        const info = Date();
+        hour = (hour - 12);
+        dayDateTime.innerText = `${weekday[dayOfWeek]}, ${months[monthOfYear]} ${today.getDate()}, ${hour}:${today.getMinutes()}AM`;
+    }
 
     city.innerText = `Weather in ${data.name}`;    
-    dayDateTime.innerText = `${weekday[dayOfWeek]}, ${months[monthOfYear]}`;
     description.innerText = `${data.weather[0].description}`;
     tempNow.innerText = `${data.main.temp}\u00B0C`;
 
@@ -51,6 +72,6 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=seoul&appid=daaf9d16ae4
 
 
 
-console.log(weekday[dayOfWeek]);
+console.log(hour);
 
   });
