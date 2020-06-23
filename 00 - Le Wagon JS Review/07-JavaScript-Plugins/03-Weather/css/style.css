@@ -3,7 +3,7 @@
   display: flex;
 }
 
-.container {
+.centered {
   display: flex;
   /*height: 100vh;*/
   align-items: center;
@@ -13,5 +13,9 @@
 
 .display {
   border: 1px solid grey;
+  width: 50%;
+}
+
+.form {
   width: 50%;
 }
