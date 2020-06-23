@@ -1,4 +1,13 @@
 // TODO: Write your JS code in here
+window.addEventListener('load', (event) => {
+  console.log("loaded");
+  navigator.geolocation.getCurrentPosition((data) => {
+    console.log("anything???");
+    console.log(data);
+
+  });
+});
+
 const submitButton = document.querySelector(".submitButton");
 
 submitButton.addEventListener("click", (event) => {
@@ -7,7 +16,8 @@ submitButton.addEventListener("click", (event) => {
   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=daaf9d16ae4a8457c354919da42dd9e2&units=metric`)
     .then(response => response.json())
     .then((data) => {
-      console.log(data.weather[0].icon);
+      // console.log(data.weather[0].icon);
+        // console.log("loaded");
       const city = document.querySelector(".city");
       const dayDateTime = document.querySelector(".dayDateTime");
       const description = document.querySelector(".description");
@@ -69,7 +79,7 @@ submitButton.addEventListener("click", (event) => {
       tempNow.innerText = `${data.main.temp}\u00B0C`;
       weatherIcon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
 
-  console.log(hour);
+  // console.log(hour);
     });
 });
 
