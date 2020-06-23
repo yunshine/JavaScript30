@@ -23,18 +23,18 @@ const displayMap = (coordinates) => {
     center: [ long, lat ],
     zoom: 11,
   });
-        new mapboxgl.Marker()
-        .setLngLat([ long, lat ])
-        .addTo(map);
+
+    new mapboxgl.Marker()
+    .setLngLat([ long, lat ])
+    .addTo(map);
 };
 
 submit.addEventListener("click", (event) => {
-  // event.preventDefault();
   const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${inputText.value}.json?access_token=pk.eyJ1IjoieXVuc2hpbmUiLCJhIjoiY2s5bnF1enNiMDU5ZTNvbnczM3k0aGIzaSJ9.KV8UR_F-hmPdVUBO-SWO9w`;
   fetch(url)
     .then(response => response.json())
     .then((data) => {
-  
+
       console.log(data);
 
       let coordinates = {
@@ -43,6 +43,7 @@ submit.addEventListener("click", (event) => {
       };
 
       displayCoordinates(coordinates);
+      
       displayMap(coordinates);
 
     });
