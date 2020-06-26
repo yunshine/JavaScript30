@@ -61,7 +61,8 @@
   const inputs = document.querySelectorAll("input");
 
   const handleUpdate = () => {
-    console.log(this.event);
+    console.log(this.event.target.value);
+    document.documentElement.style.setProperty(--spacing, "90px");
   };
 
   inputs.forEach(input => input.addEventListener('change', handleUpdate));
