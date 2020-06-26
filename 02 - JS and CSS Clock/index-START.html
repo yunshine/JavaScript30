@@ -72,20 +72,17 @@
   <script>
   const secondHandMovement =(now) => {
     const secondHand = document.querySelector(".second-hand");
-    // console.log(now.getSeconds());
     secondHand.style.transform = `rotate(${(now.getSeconds() * 6) + 90}deg)`;
   };
 
   const minuteHandMovement = (now) => {
     const minuteHand = document.querySelector(".min-hand");
     minuteHand.style.transform = `rotate(${(now.getMinutes() * 6) + 90}deg)`;
-    // console.log(now.getMinutes());
   };
 
   const hourHandMovement = (now) => {
     const hourHand = document.querySelector(".hour-hand");
     hourHand.style.transform = `rotate(${(now.getHours() * 30) + 90}deg)`;
-    console.log(now.getHours());
   };
 
   const handMovement = () => {
@@ -97,33 +94,6 @@
   
   setInterval(handMovement, 1000);
 
-
-  // console.log(now);
-
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
