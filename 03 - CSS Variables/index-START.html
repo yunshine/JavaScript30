@@ -63,7 +63,9 @@
   const handleUpdate = () => {
     // console.log(event);
     console.log(this.event.target.value);
-    document.documentElement.style.setProperty(`--${this.event.target.name}`, `${this.event.target.value}px`);
+    const suffix = this.event.target.dataset.sizing || '';
+    console.log(suffix);
+    document.documentElement.style.setProperty(`--${this.event.target.name}`, `${this.event.target.value}${suffix}`);
   };
 
   inputs.forEach(input => input.addEventListener('change', handleUpdate));
