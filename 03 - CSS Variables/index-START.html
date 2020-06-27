@@ -9,10 +9,10 @@
 
   <div class="controls">
     <label for="spacing">Spacing:</label>
-    <input id="spacing" type="range" name="spacing" min="10" max="200" value="10" data-sizing="px">
+    <input id="spacing" type="range" name="spacing" min="10" max="200" value="0" data-sizing="px">
 
     <label for="blur">Blur:</label>
-    <input id="blur" type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
+    <input id="blur" type="range" name="blur" min="0" max="25" value="0" data-sizing="px">
 
     <label for="base">Base Color</label>
     <input id="base" type="color" name="base" value="#ffc600">
@@ -61,12 +61,13 @@
   const inputs = document.querySelectorAll("input");
 
   const handleUpdate = () => {
+    // console.log(event);
     console.log(this.event.target.value);
-    document.documentElement.style.setProperty(--spacing, "90px");
+    document.documentElement.style.setProperty(`--${this.event.target.name}`, `${this.event.target.value}px`);
   };
 
   inputs.forEach(input => input.addEventListener('change', handleUpdate));
-  // inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
+  inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
 
 
   </script>
