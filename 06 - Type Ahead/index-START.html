@@ -40,7 +40,15 @@
   function displayMatches() {
     const matchArray = findMatches(this.value, cities);
     console.log(matchArray);
-    suggestions.innerHTML = matchArray;
+    const htmlSuggestion = matchArray.map(place => {
+      return `
+        <li>
+          <span class="name">${place.city}, ${place.state}</span>
+          <span class="population">${place.population}</span>
+        </li>
+      `;
+      }).join('');
+      suggestions.innerHTML = htmlSuggestion;
   };
 
   searchInput.addEventListener("keyup", displayMatches);
