@@ -32,7 +32,6 @@
         return true;
       };
     });
-
     // console.log(isAdult);
 
 
@@ -43,7 +42,6 @@
         return true;
       };
     });
-
     // console.log(everyoneAdult);
 
 
@@ -53,12 +51,20 @@
     const correctId = comments.find(comment => {
       return comment.id == 823423;
     });
-    console.log(correctId);
+    // console.log(correctId);
 
 
     // Array.prototype.findIndex()
     // Find the comment with this ID
     // delete the comment with the ID of 823423
+    const commentIndex = comments.findIndex(comment => comment.id == 823423);
+    console.log(commentIndex);
+
+    const newComments = [
+      ...comments.slice(0, commentIndex),
+      ...comments.slice(commentIndex + 1) // since nothing was given as a second argument, it'll go to the end
+    ];
+
 
   </script>
 </body>
