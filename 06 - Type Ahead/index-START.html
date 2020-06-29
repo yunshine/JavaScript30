@@ -29,7 +29,7 @@
     console.log(cities);
   });
 
-  function findMatches(wordToMatch, cities) {
+ const findMatches = (wordToMatch, cities) => {
     return cities.filter(place => {
       // figure out if the city or state matches what was searched
       const regex = new RegExp(wordToMatch, 'gi');
@@ -38,8 +38,9 @@
   };
 
   function displayMatches() {
-    console.log(this.value);
-    findMatches(this.value, cities);
+    const matchArray = findMatches(this.value, cities);
+    console.log(matchArray);
+    suggestions.innerHTML = matchArray;
   };
 
   searchInput.addEventListener("keyup", displayMatches);
