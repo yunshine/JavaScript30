@@ -56,5 +56,12 @@ ranges.forEach((slider) => {
 
 video.addEventListener("timeupdate", handleProgress);
 
+let mousedown = false;
 progress.addEventListener("click", scrub);
-progressBar.addEventListener("mousemove", scrub);
+progressBar.addEventListener("mousemove", () => {
+  if (mousedown === true) {
+    scrub(event);
+  } 
+});
+progress.addEventListener("mousedown", () => mousedown = true);
+progress.addEventListener("mouseup", () => mousedown = false);
