@@ -21,7 +21,8 @@ function togglePlay() {
 }
 
 function skip() {
-  console.log("I'm skipping!~");
+  console.log(video);
+  video.currentTime += parseFloat(this.dataset.skip);
 };
 
 video.addEventListener("click", togglePlay);
