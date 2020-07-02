@@ -8,7 +8,6 @@ const ranges = player.querySelectorAll('.player__slider');
 
 
 function updateButton() {
-  console.log("update button");
   const icon = this.paused ? "►" : "❚ ❚";
   toggle.innerText = icon;
 }
@@ -21,7 +20,15 @@ function togglePlay() {
   }
 }
 
+function skip() {
+  console.log("I'm skipping!~");
+};
+
 video.addEventListener("click", togglePlay);
 video.addEventListener("play", updateButton);
 video.addEventListener("pause", updateButton);
 toggle.addEventListener("click", togglePlay);
+
+skipButtons.forEach((button) => {
+  button.addEventListener("click", skip);
+});
