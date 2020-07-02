@@ -7,6 +7,17 @@
 </head>
 <body>
 <script>
+const pressedKeys = [];
+const magicCode = 'yun'
+
+window.addEventListener("keyup", (event) => {
+  pressedKeys.push(event.key);
+  pressedKeys.splice(-magicCode.length - 1, pressedKeys.length - magicCode.length);
+  console.log(pressedKeys);
+  if (pressedKeys.join('') === magicCode) {
+    cornify_add();
+  }
+});
 </script>
 </body>
 </html>
