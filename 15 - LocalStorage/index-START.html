@@ -55,7 +55,21 @@
     }).join('');
   }
 
+  function toggleDone(event) {
+    if (!event.target.matches('input')) {
+      return;
+    }
+    // console.log(this);
+    const eventTarget = event.target;
+    const eventTargetIndex = eventTarget.dataset.index;
+    items[eventTargetIndex].done = !items[eventTargetIndex].done;
+    localStorage.setItem("items", JSON.stringify(items));
+    console.log(event.target.dataset.index);
+    populateList(items, itemsList);
+  }
+
   addItems.addEventListener("submit", addItem);
+  itemsList.addEventListener("click", toggleDone);
 
   populateList(items, itemsList);
 
