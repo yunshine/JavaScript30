@@ -19,10 +19,16 @@
   const words = document.querySelector('.words');
   words.appendChild(p);
 
-  recognition.addEventListener("results"; event => {
-
+  recognition.addEventListener("result", event => {
+    // console.log(event, this, event.target);
+    const transcript = Array.from(event.results)
+    .map(result => result[0])
+    .map(result => result.transcript)
+    .join('')
+    console.log(transcript);
   });
 
+recognition.start();
 
 </script>
 
