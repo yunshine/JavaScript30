@@ -30,3 +30,4 @@ function paintToCanvas() {
 
 getVideo();
 // paintToCanvas();
+// ADDING NOTE...
