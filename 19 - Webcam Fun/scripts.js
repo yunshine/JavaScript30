@@ -34,5 +34,6 @@ function takePhoto() {
 }
 
 getVideo();
+video.addEventListener("canplay", paintToCanvas);
 // paintToCanvas();
 // ADDING NOTE... 
