@@ -25,7 +25,10 @@
     const min = 0.25;
     const max = 4;
     const height = Math.round(percent * 100) + '%';
+    const playBackRate = percent * (max - min) + min;
     console.log(height);
+    bar.style.height = height;
+    bar.textContent = playBackRate.toFixed(2);
   });
 
 </script>
