@@ -26,9 +26,10 @@
     const max = 4;
     const height = Math.round(percent * 100) + '%';
     const playBackRate = percent * (max - min) + min;
-    console.log(height);
+    console.log(playBackRate);
     bar.style.height = height;
-    bar.textContent = playBackRate.toFixed(2);
+    bar.textContent = playBackRate.toFixed(2) + 'x';
+    video.playbackRate = playBackRate;
   });
 
 </script>
