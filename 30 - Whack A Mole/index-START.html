@@ -45,13 +45,18 @@
   function randomHole(holes) {
     const indexNumber = Math.floor(Math.random() * holes.length);
     const hole = holes[indexNumber];
-
     if (previousHole === hole) {
-      return randomeHoles();
+      return randomHoles();
     }
-
     previousHole = hole;
     return hole;
+  }
+
+  function peep() {
+    const time = randomTime(250,1000);
+    const hole = randomHole(holes);
+    console.log(time, hole);
+    hole.classList.add('up');
   }
 
 
