@@ -8,18 +8,18 @@ function setTimerEndTime(seconds) {
     const startMinute = newDate.getMinutes();
     const startSecond = newDate.getSeconds();
 
+
+    const endSecondsToDisplay = (startSecond + seconds) % 60;
+    const endMinutesToDisplay = startMinute + (Math.floor((startSecond + seconds) / 60));
+    const endHoursToDisplay = startHour + Math.floor((startMinute + (Math.floor((startSecond + seconds)) / 60)) / 60);
+
+
     console.log("Seconds to Add: ", seconds);
     console.log("Hours NOW: ", newDate.getHours());
     console.log("Minutes NOW: ", newDate.getMinutes());
     console.log("Seconds NOW: ", newDate.getSeconds());
+    // console.log("Hours to Show: ", endHoursToDisplay);
 
-    const endSecondsToDisplay = (startSecond + seconds) % 60;
-    const endMinutesToDisplay = startMinute + (Math.floor((startSecond + seconds) / 60));
-    console.log("Minutes to Show: ", endMinutesToDisplay);
-
-    // console.log("Hours: ", newDate.getHours());
-    // console.log("Minutes: ", minutesToShow);
-    // console.log("Seconds: ", secondsToShow);
 
 };
 
