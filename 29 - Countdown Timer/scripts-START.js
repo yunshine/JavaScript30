@@ -10,8 +10,10 @@ function setTimerEndTime(seconds) {
 
 
     const endSecondsToDisplay = (startSecond + seconds) % 60;
-    const endMinutesToDisplay = startMinute + (Math.floor((startSecond + seconds) / 60));
-    const endHoursToDisplay = startHour + Math.floor((startMinute + (Math.floor((startSecond + seconds)) / 60)) / 60);
+    const endMinutesToDisplay = (startMinute + (Math.floor((startSecond + seconds) / 60))) % 60;
+    const endHoursToDisplay = (startHour + Math.floor((startMinute + (Math.floor((startSecond + seconds)) / 60)) / 60)) % 12;
+
+    timeEndDisplay.innerText = `${endHoursToDisplay}:${endMinutesToDisplay < 10 ? 0 : ""}${endMinutesToDisplay}:${endSecondsToDisplay < 10 ? 0 : ""}${endSecondsToDisplay}`;
 
 
     console.log("Seconds to Add: ", seconds);
@@ -26,12 +28,11 @@ function setTimerEndTime(seconds) {
 function startTimer() {
     let secondsRemaining = parseInt(this.dataset.time);
     setTimerEndTime(secondsRemaining);
-    timeLeftDisplay.innerText = this.dataset.time;
-    timeEndDisplay.innerText = Date.now() + parseInt(this.dataset.time);
+    timeLeftDisplay.innerText = `${this.dataset.time} ${this.dataset.time != 1 ? "seconds remaining" : "second remaining"}`;
 
     const countdown = setInterval(function () {
         secondsRemaining -= 1;
-        timeLeftDisplay.innerText = secondsRemaining;
+        timeLeftDisplay.innerText = `${secondsRemaining} ${secondsRemaining != 1 ? "seconds remaining" : "second remaining"}`;
         if (secondsRemaining === 0) {
             clearInterval(countdown);
         };
