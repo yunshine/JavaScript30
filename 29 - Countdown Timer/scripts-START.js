@@ -14,7 +14,8 @@ function setTimerEndTime(seconds) {
     console.log("Seconds NOW: ", newDate.getSeconds());
 
     const endSecondsToDisplay = (startSecond + seconds) % 60;
-    console.log("Seconds to Show: ", endSecondsToDisplay);
+    const endMinutesToDisplay = startMinute + (Math.floor((startSecond + seconds) / 60));
+    console.log("Minutes to Show: ", endMinutesToDisplay);
 
     // console.log("Hours: ", newDate.getHours());
     // console.log("Minutes: ", minutesToShow);
