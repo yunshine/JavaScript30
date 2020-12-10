@@ -9,13 +9,11 @@ function setTimerEndTime(seconds) {
     const startMinute = newDate.getMinutes();
     const startSecond = newDate.getSeconds();
 
-
     const endSecondsToDisplay = (startSecond + seconds) % 60;
     const endMinutesToDisplay = (startMinute + (Math.floor((startSecond + seconds) / 60))) % 60;
     const endHoursToDisplay = (startHour + Math.floor((startMinute + (Math.floor((startSecond + seconds)) / 60)) / 60)) % 12;
 
     timeEndDisplay.innerText = `This break ends at ${endHoursToDisplay}:${endMinutesToDisplay < 10 ? 0 : ""}${endMinutesToDisplay}:${endSecondsToDisplay < 10 ? 0 : ""}${endSecondsToDisplay}`;
-
 
     console.log("Seconds to Add: ", seconds);
     console.log("Hours NOW: ", newDate.getHours());
@@ -27,7 +25,6 @@ function buttonTimer() {
     let secondsRemaining = parseInt(this.dataset.time);
     setTimerEndTime(secondsRemaining);
     timeLeftDisplay.innerText = `${secondsRemaining} ${secondsRemaining !== 1 ? "seconds remaining" : "second remaining"}`;
-
     startCountdown(secondsRemaining);
 };
 
@@ -48,40 +45,7 @@ function inputTimer(e) {
     setTimerEndTime(secondsRemaining);
     timeLeftDisplay.innerText = `${secondsRemaining} ${secondsRemaining !== 1 ? "seconds remaining" : "second remaining"}`;
     startCountdown(secondsRemaining);
-
 }
 
 buttons.forEach(button => button.addEventListener('click', buttonTimer));
 input.addEventListener('submit', inputTimer);
-
-// function stopTimer() {
-//     clearInterval(countdown);
-// };
-
-// const startTime = Date.now();
-// const endTime = Date.now() + parseInt(this.dataset.time);
-// timeEndDisplay.innerText = this.dataset.time;
-
-// const secondsToAdd = Math.ceil(seconds / 60);
-// // const minutesToAdd = Math.ceil(seconds / 60);
-// const secondsLeft = seconds % 60;
-
-
-// const newDate = new Date();
-// const secondsToShow = (newDate.getSeconds() + seconds) % 60;
-// const minutesToAdd = newDate.getSeconds() + (seconds % 60);
-// console.log("adding this many minutes: ", minutesToAdd);
-
-// const minutesToShow = (newDate.getMinutes() + Math.ceil(seconds / 60) + minutesToAdd) % 60;
-
-// const timeMinutes = newDate.getMinutes() + Math.ceil(seconds / 60) + (((seconds % 60) + newDate.getSeconds()) % 60);
-
-// const timeHours = newDate.getHours() + Math.ceil(seconds / 3600);
-
-// console.log("Hours NOW: ", newDate.getHours());
-// console.log("Minutes NOW: ", newDate.getMinutes());
-// console.log("Seconds NOW: ", newDate.getSeconds());
-
-// console.log("Hours: ", newDate.getHours());
-// console.log("Minutes: ", minutesToShow);
-// console.log("Seconds: ", secondsToShow);
