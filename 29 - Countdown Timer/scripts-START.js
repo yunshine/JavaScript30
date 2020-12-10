@@ -3,29 +3,22 @@ const timeLeftDisplay = document.querySelector('.display__time-left');
 const timeEndDisplay = document.querySelector('.display__end-time');
 
 function setTimerEndTime(seconds) {
-    const secondsToAdd = Math.ceil(seconds / 60);
-    // const minutesToAdd = Math.ceil(seconds / 60);
-    const secondsLeft = seconds % 60;
-
-
     const newDate = new Date();
-    const secondsToShow = (newDate.getSeconds() + seconds) % 60;
-    const minutesToAdd = newDate.getSeconds() + (seconds % 60);
-    console.log("adding this many minutes: ", minutesToAdd);
+    const startHour = newDate.getHours();
+    const startMinute = newDate.getMinutes();
+    const startSecond = newDate.getSeconds();
 
-    const minutesToShow = (newDate.getMinutes() + Math.ceil(seconds / 60) + minutesToAdd) % 60;
-
-    const timeMinutes = newDate.getMinutes() + Math.ceil(seconds / 60) + (((seconds % 60) + newDate.getSeconds()) % 60);
-
-    const timeHours = newDate.getHours() + Math.ceil(seconds / 3600);
-
+    console.log("Seconds to Add: ", seconds);
     console.log("Hours NOW: ", newDate.getHours());
     console.log("Minutes NOW: ", newDate.getMinutes());
     console.log("Seconds NOW: ", newDate.getSeconds());
 
-    console.log("Hours: ", newDate.getHours());
-    console.log("Minutes: ", minutesToShow);
-    console.log("Seconds: ", secondsToShow);
+    const endSecondsToDisplay = (startSecond + seconds) % 60;
+    console.log("Seconds to Show: ", endSecondsToDisplay);
+
+    // console.log("Hours: ", newDate.getHours());
+    // console.log("Minutes: ", minutesToShow);
+    // console.log("Seconds: ", secondsToShow);
 
 };
 
@@ -53,3 +46,27 @@ buttons.forEach(button => button.addEventListener('click', startTimer));
 // const startTime = Date.now();
 // const endTime = Date.now() + parseInt(this.dataset.time);
 // timeEndDisplay.innerText = this.dataset.time;
+
+// const secondsToAdd = Math.ceil(seconds / 60);
+// // const minutesToAdd = Math.ceil(seconds / 60);
+// const secondsLeft = seconds % 60;
+
+
+// const newDate = new Date();
+// const secondsToShow = (newDate.getSeconds() + seconds) % 60;
+// const minutesToAdd = newDate.getSeconds() + (seconds % 60);
+// console.log("adding this many minutes: ", minutesToAdd);
+
+// const minutesToShow = (newDate.getMinutes() + Math.ceil(seconds / 60) + minutesToAdd) % 60;
+
+// const timeMinutes = newDate.getMinutes() + Math.ceil(seconds / 60) + (((seconds % 60) + newDate.getSeconds()) % 60);
+
+// const timeHours = newDate.getHours() + Math.ceil(seconds / 3600);
+
+// console.log("Hours NOW: ", newDate.getHours());
+// console.log("Minutes NOW: ", newDate.getMinutes());
+// console.log("Seconds NOW: ", newDate.getSeconds());
+
+// console.log("Hours: ", newDate.getHours());
+// console.log("Minutes: ", minutesToShow);
+// console.log("Seconds: ", secondsToShow);

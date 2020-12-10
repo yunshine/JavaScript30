@@ -23,7 +23,7 @@
         </div>
         <div class="display">
             <h1 class="display__time-left">0</h1>
-            <p class="display__end-time">3:09</p>
+            <p class="display__end-time"></p>
         </div>
     </div>
 
@@ -31,3 +31,9 @@
 </body>
 
 </html>
+
+
+<!-- minutes right now (ie. 24)
+seconds right now (ie. 58) + 123 % 60 (3) => Math.floor(61/60) = 1
+
+seconds for timer (ie. 123) => Math.floor(123/60) = 2 -->
