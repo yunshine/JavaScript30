@@ -4,9 +4,14 @@ const humanChoiceImage = document.querySelector(".human-choice-image");
 const computerChoiceContainer = document.querySelector('.computer-choice-image-div');
 const computerChoiceImage = document.querySelector(".computer-choice-image");
 const resultText = document.querySelector('.result');
+const humanScoreText = document.querySelector('#human-score');
+const computerScoreText = document.querySelector('#computer-score');
 
 let currentHumanChoice = "";
 let currentComputerChoice = "";
+
+let currentHumanScore = "0";
+let currentComputerScore = "0";
 
 function draw() {
     resultText.innerHTML = "It's a draw.";
@@ -14,10 +19,16 @@ function draw() {
 
 function humanWins() {
     resultText.innerHTML = "You win!";
+    currentHumanScore++;
+    console.log("human score: ", currentHumanScore);
+    humanScoreText.innerText = currentHumanScore;
 }
 
 function computerWins() {
-    resultText.innerHTML = "The computer has defeated mankind.";
+    resultText.innerHTML = "Oh no. The computer has defeated mankind.";
+    currentComputerScore++;
+    console.log("computer score : ", currentComputerScore);
+    computerScoreText.innerText = currentComputerScore;
 }
 
 function determineResult() {
