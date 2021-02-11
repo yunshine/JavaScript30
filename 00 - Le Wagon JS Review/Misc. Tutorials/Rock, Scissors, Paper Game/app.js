@@ -1,27 +1,23 @@
 const buttons = document.querySelectorAll('.button');
 const humanChoiceContainer = document.querySelector('.human-choice-image-div');
-const myChoiceImage = document.querySelector(".human-choice-image");
+const humanChoiceImage = document.querySelector(".human-choice-image");
+const computerChoiceContainer = document.querySelector('.computer-choice-image-div');
+const computerChoiceImage = document.querySelector(".computer-choice-image");
 
-function showMyChoice(evt) {
+function showHumanChoice(evt) {
     const choice = evt.target.innerText;
-    // const myChoiceImage = document.createElement(".human-choice-image");
+    humanChoiceImage.setAttribute('src', `assets/${choice}.png`);
+    humanChoiceImage.setAttribute('alt', choice);
+    showComputerChoice();
+}
 
-    myChoiceImage.setAttribute('src', `assets/${choice}.png`);
-    myChoiceImage.setAttribute('alt', choice);
-    // myChoiceImage.setAttribute('height', '1px');
-    // myChoiceImage.setAttribute('width', '1px');
-    // document.body.appendChild(myChoiceImage);
-
-    // const text = document.createTextNode(input.value);
-    // humanChoiceContainer.removeChild();
-    // humanChoiceContainer.appendChild(myChoiceImage);
-    // tag.classList.add("crazy-styles");
-
-    // let newElement = listContainer.append(tag);
-    // input.value = "";
-    console.log(newImage);
+function showComputerChoice(evt) {
+    const computerChoices = ["rock", "scissors", "paper"];
+    const computerChoice = computerChoices[Math.floor(Math.random() * 3)];
+    computerChoiceImage.setAttribute('src', `assets/${computerChoice}.png`);
+    computerChoiceImage.setAttribute('alt', computerChoice);
 }
 
 buttons.forEach(button => {
-    button.addEventListener('click', showMyChoice)
+    button.addEventListener('click', showHumanChoice)
 });
