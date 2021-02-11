@@ -3,21 +3,21 @@ const humanChoiceContainer = document.querySelector('.human-choice-image-div');
 const humanChoiceImage = document.querySelector(".human-choice-image");
 const computerChoiceContainer = document.querySelector('.computer-choice-image-div');
 const computerChoiceImage = document.querySelector(".computer-choice-image");
-
+const resultText = document.querySelector('.result');
 
 let currentHumanChoice = "";
 let currentComputerChoice = "";
 
 function draw() {
-    console.log("it's a draw");
+    resultText.innerHTML = "It's a draw.";
 }
 
 function humanWins() {
-    console.log("humans win");
+    resultText.innerHTML = "You win!";
 }
 
 function computerWins() {
-    console.log("computers win");
+    resultText.innerHTML = "The computer has defeated mankind.";
 }
 
 function determineResult() {
