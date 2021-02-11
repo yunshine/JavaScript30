@@ -1,3 +1,16 @@
 body {
     background-color: slategray;
 }
+
+.button {
+    background-color: red;
+    padding: 8px 16px;
+    border: 1px solid black;
+    border-radius: 4px;
+    transition: all .4s
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: orange;
+}
