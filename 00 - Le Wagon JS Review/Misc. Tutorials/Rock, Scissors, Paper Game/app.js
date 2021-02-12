@@ -40,14 +40,18 @@ function determineResult() {
         humanWins();
     } else if (currentHumanChoice === "paper" && currentComputerChoice === "rock") {
         humanWins();
-    } else if (currentComputerChoice === "rock" && currentHumanChoice === "scissors") {
-        computerWins();
-    } else if (currentComputerChoice === "scissors" && currentHumanChoice === "paper") {
-        computerWins();
-    } else if (currentComputerChoice === "paper" && currentHumanChoice === "rock") {
+    } else {
         computerWins();
     }
+    // } else if (currentComputerChoice === "rock" && currentHumanChoice === "scissors") {
+    //     computerWins();
+    // } else if (currentComputerChoice === "scissors" && currentHumanChoice === "paper") {
+    //     computerWins();
+    // } else if (currentComputerChoice === "paper" && currentHumanChoice === "rock") {
+    //     computerWins();
+    // }
 }
+
 
 function showComputerChoice(evt) {
     const computerChoices = ["rock", "scissors", "paper"];
