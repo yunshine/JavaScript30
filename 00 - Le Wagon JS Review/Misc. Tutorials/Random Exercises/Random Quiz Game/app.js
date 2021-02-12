@@ -22,10 +22,21 @@ const questions = [
     },
 ];
 
-function showQuestion(questions) {
-    let questionNumber = 0;
-    let numberOfQuestions = questions.length;
+let questionNumber = 0;
+let numberOfQuestions = questions.length;
+let isCorrect = ""
 
+function checkAnswer(correctAnswer, chosenAnswer) {
+    if (correctAnswer === chosenAnswer) {
+        isCorrect = true;
+    } else {
+        isCorrect = false;
+    }
+    console.log("is Correct? ", isCorrect);
+    return isCorrect;
+}
+
+function showQuestionAndAnswers(questions) {
     question.textContent = `${questionNumber + 1}) ${questions[questionNumber].question}`;
     questions[questionNumber].choices.forEach(choice => {
         const choiceLI = document.createElement("li");
@@ -33,15 +44,22 @@ function showQuestion(questions) {
         choiceLI.append(choiceText);
         choicesUL.appendChild(choiceLI);
     });
-
+    const choiceLIs = document.querySelectorAll('li');
+    choiceLIs.forEach(li => {
+        li.addEventListener('click', function () {
+            console.log(this.innerText);
+            console.log(questions[questionNumber].answer)
+            checkAnswer(questions[questionNumber].answer, this.innerText)
+        })
+    })
     // console.log("question choices: ", questions[questionNumber].choices);
-    questionNumber++;
+    // questionNumber++;
 }
 
 function startQuiz() {
     startSection.classList.add("disappear");
     gameSection.classList.remove("disappear");
-    showQuestion(questions);
+    showQuestionAndAnswers(questions);
 }
 
 startButton.addEventListener('click', startQuiz);
