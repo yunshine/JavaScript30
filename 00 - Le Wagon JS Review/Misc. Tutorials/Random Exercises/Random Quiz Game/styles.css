@@ -8,7 +8,7 @@ body {
     padding: 16px;
 }
 
-.start-quiz-section {
+.start-quiz-section, .response-section {
     text-align: center;
     position: absolute;
     top: 50%;
@@ -16,7 +16,7 @@ body {
     transform: translate(-50%, -50%);
 }
 
-.start-quiz-button {
+.start-quiz-button, .response-close-button {
     border: none;
     background-color: red;
     color: white;
@@ -27,7 +27,7 @@ body {
     cursor: pointer;
     transition: all .2s ease-in-out;
 }
-.start-quiz-button:hover {
+.start-quiz-button:hover, .response-close-button:hover {
 background-color: rgb(226, 0, 0);
 }
 

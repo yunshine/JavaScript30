@@ -1,7 +1,10 @@
 const startSection = document.querySelector('.start-quiz-section');
+const responseSection = document.querySelector('.response-section');
 const startButton = document.querySelector('.start-quiz-button');
+const respoonseButton = document.querySelector('.respoonse-button');
 const gameSection = document.querySelector('.game-section');
 const questionText = document.querySelector('#question');
+const responseText = document.querySelector('#response');
 const choicesUL = document.querySelector('.choices');
 
 const questions = [
@@ -26,14 +29,25 @@ let questionNumber = 0;
 let numberOfQuestions = questions.length;
 let isCorrect = ""
 
+function showResponse(correct) {
+    if (correct) {
+        responseText.textContent = "That's right! You're a amazing!"
+        gameSection.classList.add("disappear");
+        responseSection.classList.remove("disappear");
+    } else {
+
+    }
+}
+
 function checkAnswer(correctAnswer, chosenAnswer) {
     if (correctAnswer === chosenAnswer) {
         isCorrect = true;
+        showResponse(true);
     } else {
         isCorrect = false;
+        showResponse(false);
     }
     console.log("is Correct? ", isCorrect);
-    return isCorrect;
 }
 
 function showQuestionAndAnswers(questions) {
