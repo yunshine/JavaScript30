@@ -1,16 +1,47 @@
 body {
     background-color: slategray;
+    text-align: center;
+}
+
+.scores-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.score {
+    margin: 24px 20px 0 20px;
+}
+
+
+.choices-div {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-top: 10vh;
+}
+
+.buttons-div {
+    padding-top: 4vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .button {
     background-color: red;
-    padding: 8px 16px;
+    padding: 16px 32px;
     border: 1px solid black;
     border-radius: 4px;
-    transition: all .4s
+    transition: all .1s
 }
 
 .button:hover {
     cursor: pointer;
     background-color: orange;
+}
+
+.flip {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
 }
