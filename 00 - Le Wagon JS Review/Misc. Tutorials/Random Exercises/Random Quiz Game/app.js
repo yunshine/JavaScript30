@@ -2,11 +2,13 @@ const startSection = document.querySelector('.start-quiz-section');
 const responseSection = document.querySelector('.response-section');
 const startButton = document.querySelector('.start-quiz-button');
 const responseButton = document.querySelector('.response-close-button');
+const restartButton = document.querySelector('.restart-button');
 const gameSection = document.querySelector('.game-section');
 const gameOverSection = document.querySelector('.game-over-section');
 const questionText = document.querySelector('#question');
 const responseText = document.querySelector('#response');
 const scoreText = document.querySelector('#score-text');
+const finalScoreText = document.querySelector('.final-score-text');
 const totalQuestions = document.querySelector('#total-questions');
 const choicesUL = document.querySelector('.choices');
 
@@ -31,15 +33,21 @@ const questions = [
 let questionNumber = 0;
 let numberOfQuestions = questions.length;
 let currentScore = 0;
-scoreText.textContent = ` Current Score: ${currentScore}`;
 totalQuestions.textContent = ` out of ${numberOfQuestions}`;
 let isCorrect = ""
+
+function restartQuiz() {
+    console.log('in restart quiz...', questionNumber, currentScore)
+    startQuiz()
+}
 
 function nextQuestion() {
     if (questionNumber >= numberOfQuestions) {
         console.log('game over...')
+        finalScoreText.textContent = `You got ${currentScore} out of ${numberOfQuestions} questions correct.`;
         responseSection.classList.toggle("disappear");
         gameOverSection.classList.toggle("disappear");
+        restartButton.addEventListener('click', restartQuiz);
     } else {
         responseSection.classList.toggle("disappear");
         gameSection.classList.toggle("disappear");
@@ -92,6 +100,11 @@ function showQuestionAndAnswers(questions) {
 }
 
 function startQuiz() {
+    questionNumber = 0;
+    currentScore = 0;
+    scoreText.textContent = ` Current Score: ${currentScore}`;
+    console.log('restarting quiz...', questionNumber, currentScore)
+    gameOverSection.classList.add("disappear");
     startSection.classList.add("disappear");
     gameSection.classList.remove("disappear");
     showQuestionAndAnswers(questions);
