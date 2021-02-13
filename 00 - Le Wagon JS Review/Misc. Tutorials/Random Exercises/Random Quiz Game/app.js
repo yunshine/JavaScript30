@@ -1,10 +1,12 @@
 const startSection = document.querySelector('.start-quiz-section');
 const responseSection = document.querySelector('.response-section');
 const startButton = document.querySelector('.start-quiz-button');
-const respoonseButton = document.querySelector('.respoonse-button');
+const responseButton = document.querySelector('.response-button');
 const gameSection = document.querySelector('.game-section');
 const questionText = document.querySelector('#question');
 const responseText = document.querySelector('#response');
+const scoreText = document.querySelector('#score-text');
+const totalQuestions = document.querySelector('#total-questions');
 const choicesUL = document.querySelector('.choices');
 
 const questions = [
@@ -27,15 +29,22 @@ const questions = [
 
 let questionNumber = 0;
 let numberOfQuestions = questions.length;
+let currentScore = 0;
+scoreText.textContent = ` Current Score: ${currentScore}`;
+totalQuestions.textContent = ` out of ${numberOfQuestions}`;
 let isCorrect = ""
+
 
 function showResponse(correct) {
     if (correct) {
+        currentScore++;
         responseText.textContent = "That's right! You're a amazing!"
         gameSection.classList.add("disappear");
         responseSection.classList.remove("disappear");
     } else {
-
+        responseText.textContent = "Wow. You're really bad at this."
+        gameSection.classList.add("disappear");
+        responseSection.classList.remove("disappear");
     }
 }
 
