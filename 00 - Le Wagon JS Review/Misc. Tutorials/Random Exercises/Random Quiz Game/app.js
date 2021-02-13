@@ -14,9 +14,29 @@ const choicesUL = document.querySelector('.choices');
 
 const questions = [
     {
+        question: "When did Yun get married?",
+        answer: "January 22nd, 2021",
+        choices: ["January 22nd, 2021", "July 18th, 2018", "March 9th, 1985", "November 8th, 1977"],
+    },
+    {
+        question: "Where was Yun born?",
+        answer: "Seoul",
+        choices: ["Seattle", "Seoul", "Tokyo", "Los Angeles"],
+    },
+    {
         question: "What is Yun's favorite pizza restaurant?",
         answer: "Savoy",
         choices: ["La Strada", "Zachary's", "Savoy", "Little Caesar's"],
+    },
+    {
+        question: "What is Yun's Nike shoe size?",
+        answer: "270",
+        choices: ["260", "265", "270", "275"],
+    },
+    {
+        question: "Who was Yun's childhood hero?",
+        answer: "Michael Jordan",
+        choices: ["Michael Jackson", "Michael Jordan", "Steve Jobs", "Jesus"],
     },
     {
         question: "What is Yun's favorite book?",
@@ -24,9 +44,24 @@ const questions = [
         choices: ["the Bible", "Harry Potter", "The Lord of the Rings", "A Game of Thrones"],
     },
     {
-        question: "Where was Yun born?",
-        answer: "Seoul",
-        choices: ["Seoul", "Seattle", "Los Angeles", "Tokyo"],
+        question: "When did Yun graduate from the University of Washington?",
+        answer: "2000",
+        choices: ["1998", "1999", "2000", "2001"],
+    },
+    {
+        question: "Which Instagram page does Yun NOT follow?",
+        answer: "nike",
+        choices: ["patagonia", "eunjoo39", "nike", "rei"],
+    },
+    {
+        question: "Which degree did Yun receive at Talbot School of Theology?",
+        answer: "Master of Divinity",
+        choices: ["Master of Theology", "Master of Biblical Studies", "Master of Ministry", "Master of Divinity"],
+    },
+    {
+        question: "What is Yun's best quality?",
+        answer: "all of the above",
+        choices: ["looks", "personality", "intelligence", "all of the above"],
     },
 ];
 
@@ -37,13 +72,11 @@ totalQuestions.textContent = ` out of ${numberOfQuestions}`;
 let isCorrect = ""
 
 function restartQuiz() {
-    console.log('in restart quiz...', questionNumber, currentScore)
     startQuiz()
 }
 
 function nextQuestion() {
     if (questionNumber >= numberOfQuestions) {
-        console.log('game over...')
         finalScoreText.textContent = `You got ${currentScore} out of ${numberOfQuestions} questions correct.`;
         responseSection.classList.toggle("disappear");
         gameOverSection.classList.toggle("disappear");
@@ -62,7 +95,7 @@ function showResponse(correct) {
         gameSection.classList.add("disappear");
         responseSection.classList.remove("disappear");
     } else {
-        responseText.innerHTML = `Wow. You're really bad at this.<br>The correct answer is "${questions[questionNumber].answer}".`
+        responseText.innerHTML = `Wow. You're really bad at this, and Yun is disappointed in you.<br>The correct answer is "${questions[questionNumber].answer}".`
         gameSection.classList.add("disappear");
         responseSection.classList.remove("disappear");
     }
@@ -103,7 +136,6 @@ function startQuiz() {
     questionNumber = 0;
     currentScore = 0;
     scoreText.textContent = ` Current Score: ${currentScore}`;
-    console.log('restarting quiz...', questionNumber, currentScore)
     gameOverSection.classList.add("disappear");
     startSection.classList.add("disappear");
     gameSection.classList.remove("disappear");

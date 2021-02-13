@@ -6,6 +6,8 @@
 
 body {
     padding: 16px;
+    color: rgba(10, 10, 10, .85);
+    background-color: rgb(240, 240, 240);
 }
 
 .start-quiz-section, .response-section {
@@ -18,7 +20,7 @@ body {
 
 .start-quiz-button, .response-close-button, .restart-button {
     border: none;
-    background-color: red;
+    background-color:cornflowerblue;
     color: white;
     font-size: 20px;
     padding: 16px 24px;
@@ -28,7 +30,7 @@ body {
     transition: all .2s ease-in-out;
 }
 .start-quiz-button:hover, .response-close-button:hover, .restart-button:hover {
-background-color: rgb(226, 0, 0);
+background-color: rgb(80, 134, 235);
 }
 
 .game-section, .game-over-section {
@@ -57,7 +59,16 @@ background-color: rgb(226, 0, 0);
 }
 
 .game-section li:hover {
-    color: red;
+    color: cornflowerblue;
+}
+
+#score-text, #total-questions {
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.8)
+}
+
+#question {
+    margin-top: 16px;
 }
 
 .disappear {
