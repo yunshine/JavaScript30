@@ -3,6 +3,7 @@ const responseSection = document.querySelector('.response-section');
 const startButton = document.querySelector('.start-quiz-button');
 const responseButton = document.querySelector('.response-close-button');
 const gameSection = document.querySelector('.game-section');
+const gameOverSection = document.querySelector('.game-over-section');
 const questionText = document.querySelector('#question');
 const responseText = document.querySelector('#response');
 const scoreText = document.querySelector('#score-text');
@@ -35,19 +36,25 @@ totalQuestions.textContent = ` out of ${numberOfQuestions}`;
 let isCorrect = ""
 
 function nextQuestion() {
-    responseSection.classList.toggle("disappear");
-    gameSection.classList.toggle("disappear");
-    showQuestionAndAnswers(questions);
+    if (questionNumber >= numberOfQuestions) {
+        console.log('game over...')
+        responseSection.classList.toggle("disappear");
+        gameOverSection.classList.toggle("disappear");
+    } else {
+        responseSection.classList.toggle("disappear");
+        gameSection.classList.toggle("disappear");
+        showQuestionAndAnswers(questions);
+    }
 }
 
 function showResponse(correct) {
     if (correct) {
         currentScore++;
-        responseText.textContent = "That's right! You're a amazing!"
+        responseText.textContent = "That's right! You're amazing!"
         gameSection.classList.add("disappear");
         responseSection.classList.remove("disappear");
     } else {
-        responseText.textContent = "Wow. You're really bad at this."
+        responseText.innerHTML = `Wow. You're really bad at this.<br>The correct answer is "${questions[questionNumber].answer}".`
         gameSection.classList.add("disappear");
         responseSection.classList.remove("disappear");
     }
@@ -64,7 +71,6 @@ function checkAnswer(correctAnswer, chosenAnswer) {
         isCorrect = false;
         showResponse(false);
     }
-    console.log("is Correct? ", isCorrect);
 }
 
 function showQuestionAndAnswers(questions) {
@@ -82,6 +88,7 @@ function showQuestionAndAnswers(questions) {
             checkAnswer(questions[questionNumber].answer, this.innerText)
         })
     })
+
 }
 
 function startQuiz() {
