@@ -1,0 +1,20 @@
+[
+    {
+        "text": "study Japanese",
+        "author": "Yun",
+        "points": 50,
+        "completed": false
+    },
+    {
+        "text": "work out",
+        "author": "Eunjoo",
+        "points": 100,
+        "completed": true
+    },
+    {
+        "text": "watch Netflix",
+        "author": "Yun",
+        "points": 15,
+        "completed": true
+    }
+]
