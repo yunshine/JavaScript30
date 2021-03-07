@@ -1,0 +1,17 @@
+[
+    {
+        "item": "cartons of milk",
+        "quantity": 2,
+        "isOnSale": false
+    },
+    {
+        "item": "bag of carrots",
+        "quantity": 1,
+        "isOnSale": true
+    },
+    {
+        "item": "cans of soda",
+        "quantity": 6,
+        "isOnSale": true
+    }
+]

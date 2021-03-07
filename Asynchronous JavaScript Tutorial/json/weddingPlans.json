@@ -1,0 +1,17 @@
+[
+    {
+        "task": "make guest list",
+        "dueDate": "March 9th",
+        "completed": false
+    },
+    {
+        "task": "book venue",
+        "dueDate": "April 10th",
+        "completed": true
+    },
+    {
+        "task": "send invitations",
+        "dueDate": "November 8th",
+        "completed": true
+    }
+]

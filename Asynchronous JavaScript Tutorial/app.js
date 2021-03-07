@@ -1,4 +1,4 @@
-const getTodos = (callbackFunction) => {
+const getTodos = (resource, callbackFunction) => {
     // the XMLHttpRequest object is old, but it also works with JSON and other data types like XML or plain text...
     const request = new XMLHttpRequest();
 
@@ -22,13 +22,14 @@ const getTodos = (callbackFunction) => {
             callbackFunction('Error. Could not fetch data...', undefined);
         }
     });
+
     // How to send a request to get data...
     // ==================================================================
     // request.open tells our request what type of request it is (GET) and where to get that data from/where to send the request...
     // request.open('GET', 'https://jsonplaceholder.typicode.com/todos/');
 
     // accessing my own JSON file...
-    request.open('GET', 'todos.json');
+    request.open('GET', resource);
     // request.open sets up the request, and request.send sends the request...
     request.send();
 };
@@ -38,13 +39,16 @@ console.log(1);
 console.log(2);
 
 // How to handle errors and/or data that has been successfully fetched...
-getTodos((err, data) => {
+getTodos('json/todos.json', (err, data) => {
     console.log("Callback fired from inside the callbackFunction...");
     if (err) {
         console.log(err);
     } else {
         console.log(data);
-
+        // if you have multiple json files or apis or sources of data you need asynchronously, you could start nested  callback hell here like so...
+        getTodos('json/shoppingList.json', (err, data) => {
+            console.log("callback hell 1: ", data);
+        })
     }
 });
 
