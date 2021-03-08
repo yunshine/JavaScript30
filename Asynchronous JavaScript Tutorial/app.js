@@ -89,3 +89,31 @@ getSomething().then(data => {
     // .catch fires when the promise rejects...
     console.log("err from get Something...", err);
 });
+
+
+// JavaScript Promises: a real example - fetching the JSON todos with promises...
+// ==========================================================================
+const getTodosWithPromises = (resource) => {
+
+    return new Promise((resolve, reject) => {
+        const request = new XMLHttpRequest();
+
+        request.addEventListener('readystatechange', () => {
+            if (request.readyState === 4 && request.status === 200) {
+                const data = JSON.parse(request.responseText);
+                resolve(data);
+            } else if (request.readyState === 4) {
+                reject('Error. Could not fetch data...');
+            }
+        });
+
+        request.open('GET', resource);
+        request.send();
+    });
+};
+
+getTodosWithPromises('json/todoss.json').then(data => {
+    console.log("Data Resolved from getTodosWithPromises: ", data);
+}).catch(err => {
+    console.log("Err from getToDosWithPromises: ", err);
+});
