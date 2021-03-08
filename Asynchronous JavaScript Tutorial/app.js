@@ -34,6 +34,7 @@ const getTodos = (resource, callbackFunction) => {
     request.send();
 };
 
+/*
 // These console.logs below show that the getTodos callback function is asynchronous and not blocking...
 console.log(1);
 console.log(2);
@@ -54,3 +55,37 @@ getTodos('json/todos.json', (err, data) => {
 
 console.log(3);
 console.log(4);
+*/
+
+// JavaScript Promises
+// ==========================================================================
+const getSomething = () => {
+
+    // first, you need to return a new Promise when getSomething is called. A promise is something that will take some time to do. The result will either by "resolved" or "rejected"...
+    return new Promise((resolve, reject) => {
+        // fetching some data here...
+        resolve('some data...');
+        // reject('some err...');
+    });
+};
+
+
+/*
+// the .then function will fire when the getSomething promise resolves with the data that is passed from the resolved function in the returned promise, OR if it rejects...
+// the second callback function fires when there is a rejected error...
+getSomething().then((data) => {
+    console.log("data from getSomething... ", data);
+}, (err) => {
+    // this second callback function fires if there is an error with the getSomething promise with the err...
+    console.log("err from get Something...", err);
+});
+*/
+
+// a cleaner way to write the same getSomething function...
+getSomething().then(data => {
+    // .then fires when the promise resolves with data...
+    console.log("data from getSomething... ", data);
+}).catch(err => {
+    // .catch fires when the promise rejects...
+    console.log("err from get Something...", err);
+});
