@@ -112,8 +112,25 @@ const getTodosWithPromises = (resource) => {
     });
 };
 
-getTodosWithPromises('json/todoss.json').then(data => {
+// working with 1 Promise...
+getTodosWithPromises('json/todos.json').then(data => {
     console.log("Data Resolved from getTodosWithPromises: ", data);
 }).catch(err => {
     console.log("Err from getToDosWithPromises: ", err);
+});
+
+// chaining multiple Promises...
+getTodosWithPromises('json/todos.json').then(data => {
+    console.log("Promise 1 Resolved: ", data);
+    // here, we need to return the promise of the second json...
+    return getTodosWithPromises('json/shoppingList.json');
+}).then(data => {
+    console.log("Promise 2 Resolved: ", data);
+    // again, as before, here, we need to return the promise of the third json...
+    return getTodosWithPromises('json/weddingPlans.json');
+}).then(data => {
+    console.log("Promise 3 Resolved: ", data);
+    // even though there are multiple promises, we only need one .catch...
+}).catch(err => {
+    console.log("Err - Promise Rejected: ", err);
 });
