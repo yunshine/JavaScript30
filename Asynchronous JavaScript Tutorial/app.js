@@ -69,7 +69,6 @@ const getSomething = () => {
     });
 };
 
-
 /*
 // the .then function will fire when the getSomething promise resolves with the data that is passed from the resolved function in the returned promise, OR if it rejects...
 // the second callback function fires when there is a rejected error...
@@ -119,6 +118,7 @@ getTodosWithPromises('json/todos.json').then(data => {
     console.log("Err from getToDosWithPromises: ", err);
 });
 
+
 // chaining multiple Promises...
 getTodosWithPromises('json/todos.json').then(data => {
     console.log("Promise 1 Resolved: ", data);
@@ -133,4 +133,20 @@ getTodosWithPromises('json/todos.json').then(data => {
     // even though there are multiple promises, we only need one .catch...
 }).catch(err => {
     console.log("Err - Promise Rejected: ", err);
+});
+
+
+// the fetch api - the newer, better native api for doing everything that above...l
+// ==========================================================================
+
+// the fetch function below returns a promise with a resolve and a reject, just like what we saw above...
+// this time, instead of json data, we get a 'response' object that the fetch api creates for us...
+fetch('json/todos.json').then(response => {
+    // one quirk with the fetch API - the Promise is only rejected when there is a network error. If you mistyped the url or something, the Promise is still resolved, but you'll get a status of 404...
+    console.log('The Fetch API Resolved: ', response);
+    return response.json(); /* this returns another promise... */
+}).then(data => {
+    console.log('Data from the Fetch API: ', data);
+}).catch(err => {
+    console.log('The Fetch API Rejected: ', err);
 });
