@@ -69,7 +69,7 @@ const getSomething = () => {
     });
 };
 
-/*
+
 // the .then function will fire when the getSomething promise resolves with the data that is passed from the resolved function in the returned promise, OR if it rejects...
 // the second callback function fires when there is a rejected error...
 getSomething().then((data) => {
@@ -78,7 +78,7 @@ getSomething().then((data) => {
     // this second callback function fires if there is an error with the getSomething promise with the err...
     console.log("err from get Something...", err);
 });
-*/
+
 
 // a cleaner way to write the same getSomething function...
 getSomething().then(data => {
@@ -150,3 +150,29 @@ fetch('json/todos.json').then(response => {
 }).catch(err => {
     console.log('The Fetch API Rejected: ', err);
 });
+
+
+// Async & Await
+// ==========================================================================
+// first, create  a function that contains all of our async code, the code that goes out to get data from somewhere. Because we've used the keyword 'async', it is non-blocking...
+
+// whenever we use the async key word, the function will return a PROMISE...
+const getTodosWithAsyncAwait = async () => {
+    // once the fetch Promise below is resolved, JavaScript will then assign the data as the value to 'response'... this data will be a response object...
+    const response = await fetch('json/todos.json');
+    const data = await response.json();
+
+    console.log("The 'response' variable from getTodosWithAsyncAwait: ", response);
+    console.log("The 'data' variable from getTodosWithAsyncAwait: ", data);
+
+    return data;
+};
+
+console.log("a");
+console.log("b");
+
+getTodosWithAsyncAwait()
+    .then(data => console.log("Resolved data from getTodosWithAsyncAwait: ", data));
+
+console.log("c");
+console.log("d");
