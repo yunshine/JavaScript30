@@ -69,3 +69,46 @@
 // }
 
 // scrape(url);
+
+
+// const scrape = () => {
+
+
+//     fetch('http://localhost:8080/blogs/')
+//         .then(res => {
+//             if (!res.ok) {
+//                 throw Error('There was an error, and data could not be fetched...');
+//             }
+//             return res.json();
+//         })
+//         .then(data => {
+//             console.log("Does this work? Here's the data: ", data);
+//         })
+//         .catch(err => {
+//             if (err.name === 'AbortError') {
+//                 console.log("This fetch request has been aborted by abortController...");
+//             } else {
+//                 console.log("working I guess...");
+//             }
+//         })
+// }
+
+
+async function foobar() {
+    console.log("in foobar");
+    let data;
+
+    // Note the await keyword
+    await fetch('http://localhost:8080/stuff')
+        .then((response) => response.text())
+        .then((result) => {
+            data = JSON.parse(result);
+        })
+        .catch((error) => console.log("error", error));
+
+    console.log(data);
+}
+
+console.log("hi you");
+foobar();
+// scrape();
