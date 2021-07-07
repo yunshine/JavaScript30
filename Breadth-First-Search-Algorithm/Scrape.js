@@ -44,26 +44,28 @@
 
 // xhr.send();
 
-const puppeteer = require("puppeteer");
-// const url = "https://www.instagram.com/yun.chung/?__a=1";
-const url = "https://kream.co.kr/products/24703";
 
-async function scrape(url) {
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
-    await page.goto(url);
 
-    // const [el] = await page.$x("#__layout > div > div.container.detail.lg > div.content > div > div > div: nth - child(2) > div > div.column_top > div.detail_main_title.lg.has_btn > div > h2");
+// const puppeteer = require("puppeteer");
+// // const url = "https://www.instagram.com/yun.chung/?__a=1";
+// const url = "https://kream.co.kr/products/24703";
 
-    const [el] = await page.evaluate(() => {
-        document.querySelector('input[name="q"]').value = 'JavaScript';
-    });
+// async function scrape(url) {
+//     const browser = await puppeteer.launch();
+//     const page = await browser.newPage();
+//     await page.goto(url);
 
-    // const [el] = await page.document.querySelector("#__layout > div > div.container.detail.lg > div.content > div > div > div:nth-child(2) > div > div.column_top > div.detail_main_title.lg.has_btn > div > h2")
-    const txt = await el.getProperty('textContent');
-    const txtText = await txt.jsonValue();
+//     // const [el] = await page.$x("#__layout > div > div.container.detail.lg > div.content > div > div > div: nth - child(2) > div > div.column_top > div.detail_main_title.lg.has_btn > div > h2");
 
-    console.log(el);
-}
+//     const [el] = await page.evaluate(() => {
+//         document.querySelector('input[name="q"]').value = 'JavaScript';
+//     });
 
-scrape(url);
+//     // const [el] = await page.document.querySelector("#__layout > div > div.container.detail.lg > div.content > div > div > div:nth-child(2) > div > div.column_top > div.detail_main_title.lg.has_btn > div > h2")
+//     const txt = await el.getProperty('textContent');
+//     const txtText = await txt.jsonValue();
+
+//     console.log(el);
+// }
+
+// scrape(url);
