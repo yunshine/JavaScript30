@@ -2,13 +2,13 @@
     "dependencies": {
         "cheerio": "*",
         "jsdom": "^16.6.0",
+        "json-server": "^0.16.3",
         "node-fetch": "^2.6.1",
         "puppeteer": "^10.1.0"
     },
     "name": "Breadth-First-Search-Algorithm",
     "version": "1.0.0",
     "main": "BreadthFirstSearch.js",
-    "devDependencies": {},
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
